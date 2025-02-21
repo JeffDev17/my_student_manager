@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Student Manager - Gerenciamento de Alunos</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul style="list-style-type: none; padding: 0; background-color: #333; margin: 0; display: flex;">
+                <li style="margin: 0 15px;">
+                    <a href="/" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Página Inicial</a>
+                </li>
+                <li style="margin: 0 15px;">
+                    <a href="/students/" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Gerenciar Alunos</a>
+                </li>
+                <li style="margin: 0 15px;">
+                    <a href="/dashboard/" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Dashboard</a>
+                </li>
+                <li style="margin: 0 15px;">
+                    <a href="/login/" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Login</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}
+        <!-- O conteúdo das páginas filhas será renderizado aqui -->
+        {% endblock %}
+    </main>
+
+    <footer style="text-align: center; padding: 10px 0; background-color: #333; color: white;">
+        <p>&copy; 2025 My Student Manager. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
