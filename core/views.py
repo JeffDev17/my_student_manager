@@ -1,5 +1,11 @@
-# core/views.py ou o arquivo de views do seu app
 from django.shortcuts import render
+from students.forms import StudentForm
 
-def index(request):
-    return render(request, 'base.html')  
+def home(request):
+    return render(request, "home.html")
+
+def billing(request):
+    return render(request, "billing/billing.html")
+
+def students(request):
+    return render(request, "students/students.html")
