@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Alunos - My Student Manager{% endblock %}
+
+{% block content %}
+    <h1>Gerenciamento de Alunos</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}
