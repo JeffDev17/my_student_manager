@@ -10,7 +10,7 @@ class Student(models.Model):
     start_date = models.DateField()
     package = models.IntegerField(choices=[(4, '4 aulas'), (8, '8 aulas'), (12, '12 aulas'), (16, '16 aulas'), (20, '20 aulas')])
     payment_day = models.IntegerField()
-    phone_number = models.CharField(max_length=15)
+    phone_number = models.CharField(max_length=20)
     accumulated_classes = models.IntegerField(default=0)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='active')
 
