@@ -10,16 +10,16 @@
         <nav>
             <ul style="list-style-type: none; padding: 0; background-color: #333; margin: 0; display: flex;">
                 <li style="margin: 0 15px;">
-                    <a href="/" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Página Inicial</a>
+                    <a href="{% url 'home' %}" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Página Inicial</a>
                 </li>
                 <li style="margin: 0 15px;">
-                    <a href="/students/" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Gerenciar Alunos</a>
+                    <a href="{% url 'students' %}" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Gerenciar Alunos</a>
                 </li>
                 <li style="margin: 0 15px;">
-                    <a href="/billing/" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Dashboard</a>
+                    <a href="{% url 'billing' %}" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Financeiro</a>
                 </li>
                 <li style="margin: 0 15px;">
-                    <a href="/login/" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Login</a>
+                    <a href="{% url 'new_student' %}" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Add Student</a>
                 </li>
             </ul>
         </nav>
