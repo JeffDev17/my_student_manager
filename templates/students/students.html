@@ -5,7 +5,7 @@
 {% block content %}
 <div style="padding: 20px;">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h2 style="color: #333; margin: 0;">Lista de Alunos</h2>
+        <h2 style="color: #333; margin: 0;">Student list</h2>
         <a href="{% url 'new_student' %}" style="
             background-color: #28a745;
             color: white;
@@ -13,7 +13,7 @@
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s;">
-            + Adicionar Aluno
+            + Add student
         </a>
     </div>
 
@@ -21,14 +21,14 @@
         <table style="width: 100%; border-collapse: collapse; background-color: white; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">
             <thead>
                 <tr style="background-color: #f8f9fa;">
-                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Nome</th>
-                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Telefone</th>
-                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Data de Início</th>
-                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Pacote</th>
-                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Dia do Pagamento</th>
-                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Aulas Acumuladas</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Name</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Phone</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Start date</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Package</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Due date</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Holidays</th>
                     <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Status</th>
-                    <th style="padding: 12px; text-align: center; border-bottom: 2px solid #dee2e6;">Ações</th>
+                    <th style="padding: 12px; text-align: center; border-bottom: 2px solid #dee2e6;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,8 +42,20 @@
                     <td style="padding: 12px;">{{ student.accumulated_classes }}</td>
                     <td style="padding: 12px;">{{ student.status }}</td>
                     <td style="padding: 12px; text-align: center;">
+                        <a href="{% url 'update_student' pk=student.id %}" style="
+                            background-color: #ffc107;
+                            color: black;
+                            border: none;
+                            padding: 5px 10px;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            font-size: 14px;
+                            text-decoration: none;">
+                            Edit
+                        </a>
+                    
                         <form method="post" action="{% url 'delete_student' pk=student.id %}" style="display: inline;"
-                              onsubmit="return confirm('Tem certeza que deseja excluir este aluno?');">
+                              onsubmit="return confirm('Are you sure you want to delete this student?');">
                             {% csrf_token %}
                             <button type="submit" style="
                                 background-color: #dc3545;
@@ -53,7 +65,7 @@
                                 border-radius: 4px;
                                 cursor: pointer;
                                 font-size: 14px;">
-                                Excluir
+                                Delete
                             </button>
                         </form>
                     </td>

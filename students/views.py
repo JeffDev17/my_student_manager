@@ -22,3 +22,16 @@ def delete_student(request, pk):
         student = get_object_or_404(Student, id=pk)
         student.delete()
     return redirect('students')
+
+def update_student(request, pk):
+    student = get_object_or_404(Student, id=pk)
+
+    if request.method == "POST":
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('students')
+    else:
+        form = StudentForm(instance=student)
+
+    return render(request, 'students/update.html', {'form': form, 'student': student})
