@@ -1,8 +1,38 @@
 {% extends 'base.html' %}
 
-{% block title %}Cobranças - My Student Manager{% endblock %}
-
 {% block content %}
-    <h1>Página de Cobranças</h1>
-    <p>Aqui você verá e gerenciará as cobranças dos seus alunos.</p>
+<h2>Lista de Cobranças</h2>
+
+<a href="{% url 'billing-create' %}" class="btn btn-primary">Nova Cobrança</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Aluno</th>
+            <th>Valor</th>
+            <th>Vencimento</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for billing in billings %}
+        <tr>
+            <td>{{ billing.student }}</td>
+            <td>R$ {{ billing.amount }}</td>
+            <td>{{ billing.due_date|date:"d/m/Y" }}</td>
+            <td>{{ billing.status }}</td>
+            <td>
+                <a href="{% url 'billing-update' billing.id %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'billing-delete' billing.id %}" class="btn btn-danger btn-sm">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">Nenhuma cobrança encontrada.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}

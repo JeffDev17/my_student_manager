@@ -13,6 +13,7 @@ class Student(models.Model):
     phone_number = models.CharField(max_length=20)
     accumulated_classes = models.IntegerField(default=0)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='active')
+    monthly_fee = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="Valor da Mensalidade", default=0)
 
     def __str__(self):
         return self.name

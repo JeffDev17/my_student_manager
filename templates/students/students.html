@@ -38,7 +38,8 @@
                     <td style="padding: 12px;">{{ student.phone_number }}</td>
                     <td style="padding: 12px;">{{ student.start_date|date:"d/m/Y" }}</td>
                     <td style="padding: 12px;">{{ student.package }} aulas</td>
-                    <td style="padding: 12px;">Dia {{ student.payment_day }}</td>
+                    <td style="padding: 12px;">R$ {{ student.monthly_fee }}</td>
+                    <td style="padding: 12px;">{{ student.payment_day }}</td>
                     <td style="padding: 12px;">{{ student.accumulated_classes }}</td>
                     <td style="padding: 12px;">{{ student.status }}</td>
                     <td style="padding: 12px; text-align: center;">

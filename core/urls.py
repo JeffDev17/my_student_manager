@@ -17,6 +17,7 @@ Including another URLconf
 from django.urls import path, include
 from core import views as core_views
 from students import views as student_views
+from billing import views as billing_views
 
 urlpatterns = [
     path('', core_views.home, name='home'),
@@ -25,4 +26,8 @@ urlpatterns = [
     path('students/new/', student_views.new_student, name='new_student'),
     path('students/delete/<int:pk>/', student_views.delete_student, name='delete_student'),
     path('students/update/<int:pk>/', student_views.update_student, name='update_student'),
+    path('', billing_views.billing_list, name='billing-list'),
+    path('new/', billing_views.billing_create, name='billing-create'),
+    path('update/<int:pk>/', billing_views.billing_update, name='billing-update'),
+    path('delete/<int:pk>/', billing_views.billing_delete, name='billing-delete'),
 ]

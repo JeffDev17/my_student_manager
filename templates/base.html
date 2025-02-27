@@ -21,13 +21,16 @@
                 <li style="margin: 0 15px;">
                     <a href="{% url 'new_student' %}" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Add Student</a>
                 </li>
+                <li style="margin: 0 15px;">
+                    <a href="{% url 'billing-list' %}" style="color: white; text-decoration: none; padding: 14px 20px; display: block;">Mensalidades</a>
+                </li>
             </ul>
         </nav>
     </header>
     
     <main>
         {% block content %}
-        <!-- O conteúdo das páginas filhas será renderizado aqui -->
+
         {% endblock %}
     </main>
 
